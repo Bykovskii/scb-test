@@ -1,0 +1,228 @@
+.search-container{
+    width: 100%;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(163, 198, 232);
+    padding: 16px 0px 16px 20px;
+}
+.search-form input,
+.search-form select {
+    border: 1px solid rgb(163, 198, 232);
+    outline: none;
+    appearance:none;
+    vertical-align: bottom;
+}
+.search-form input {
+    padding: 0px 0px 0px 15px;
+    height: 44px;
+    min-width: 40px;
+    width: 0;
+}
+.search-form select  {
+    padding: 0px 0px 0px 15px;
+    height: 46px;
+}
+.search-form.modern select {
+    padding: 0px 30px 0px 15px;
+    background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+    background-position:
+        calc(100% - 20px) calc(1em + 6px),
+        calc(100% - 15px) calc(1em + 6px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+}
+.search-form select option{
+    overflow:hidden;
+}
+
+.search-form .round-left {
+    border-radius: 6px 0px 0px 6px;
+}
+.search-form .round-right {
+    border-radius: 0px 6px 6px 0px;
+}
+.search-form .round-all {
+    border-radius: 6px;
+}
+.search-form .form-block {
+    padding: 14px 20px 14px 0px;
+}
+
+.form-block-top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-block-top select {
+    flex: 1 1 auto;
+}
+.form-block-top input {
+    flex: 1 1 auto;
+    text-overflow:ellipsis;
+}
+.form-block-top button {
+    flex: 0 0 auto;
+    width: 130px;
+    height: 46px;
+    background-color: rgb(94, 153, 105);
+    color: white;
+    border: none;
+}
+
+.form-additional {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.modern .form-additional {
+    justify-content: space-between;
+}
+.form-additional input,
+.form-additional select {
+    background-color: rgb(230, 242, 254);
+    flex: 1 1 auto;
+}
+.form-block-price {
+    max-width: 550px;
+    flex: 5 1 auto;
+    display: flex;
+}
+.form-block-square {
+    max-width: 330px;
+    flex: 3 1 auto;
+    display: flex;
+}
+.form-square-title {
+    display: inline-block;
+    height: 46px;
+    width: 54px;
+    background-color: rgb(194, 227, 242);
+}
+.form-square-title span {
+    line-height: 46px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+.form-square-title span:after {
+    content: "2";
+    position: absolute;
+    top: -8px;
+    font-size: xx-small;
+    left: 35px;
+}
+.form-block-price-plug,
+.form-block-square-plug {
+    background-color: rgb(230, 242, 254);
+    flex: 1 1 auto;
+    height: 46px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.search-tools {
+    background-color: rgb(230, 242, 254);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+_:-ms-fullscreen, :root .search-tools { 
+    justify-content: none; 
+}
+
+.search-tools .search-tools-toggle,
+.search-tools .search-tools-checkboxes {
+    padding: 12px 20px;
+    display: inline-flex;
+}
+.search-tools .search-tools-toggle .toggle-text.active {
+    cursor: pointer;
+    color: black;
+}
+.search-tools .search-tools-toggle .toggle-text {
+    color: gray;
+}
+
+.search-tools .price-cb,
+.search-tools .square-cb {
+    cursor: pointer;
+}
+.search-tools .price-cb {
+    margin-right: 20px;
+}
+.search-tools .hidden-cb { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+.search-tools .fake-cb {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+}
+.search-tools .fake-cb-text {
+    padding: 0px 0px 0px 22px;
+}
+
+.search-tools input:checked + .fake-cb:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 4px;
+    top: 4px;
+    background-color: #a3c6e8;
+}
+
+.search-tools .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin: 0px 8px;
+}
+.search-tools .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(94, 153, 105);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+.search-tools .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+.search-tools input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}

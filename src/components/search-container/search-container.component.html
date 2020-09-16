@@ -1,0 +1,72 @@
+<div class="search-container">
+    <form class="search-form" v-bind:class="{modern: !isIE11}" @submit="checkForm">
+        <div v-if="toggleState" class="form-block form-block-top">
+            <input name="context" type="text" class="round-left" placeholder="Введите название объекта(бизнес-центра, торгового центра, новостройки, логопарка)">
+            <button type="submit">Найти</button>
+        </div>
+        <div v-else class="form-block form-block-top">
+            <select name="city" class="round-left">
+                <option v-for="option in cities" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <select name="type">
+                <option v-for="option in types" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <select name="estate">
+                <option v-for="option in estates" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <button type="submit">Найти</button>
+        </div>
+        <div v-if="!toggleState" class="form-additional">
+            <div v-if="priceState" class="form-block form-block-price">
+                <input name="price_from" type="number" min="0" placeholder="От" class="round-left">
+                <input name="price_to" type="number" min="0" placeholder="До">
+                <select name="currency" class="round-right">
+                    <option v-for="option in currency" v-bind:value="option.value">
+                        {{ option.text }}/месяц
+                    </option>
+                </select>
+            </div>
+            <div v-else class="form-block form-block-price">
+                <button type="button" class="form-block-price-plug round-all" @click="showPrice">Добавить цену</button>
+            </div>
+            <div v-if="squareState" class="form-block form-block-square">
+                <input name="square_from" type="number" min="0" placeholder="От" class="round-left">
+                <input name="square_to" type="number" min="0" placeholder="До">
+                <div class="form-square-title">
+                    <span>M</span>
+                </div>
+            </div>
+            <div v-else class="form-block form-block-square">
+                <button type="button" class="form-block-square-plug round-all" @click="showSquare">Добавить метраж</button>
+            </div>
+        </div>
+    </form>
+    <div class="search-tools">
+        <div class="search-tools-toggle">
+            <span class="toggle-text" v-bind:class="{active: toggleState}" @click="toggle(false)">Основной поиск</span>
+            <label class="switch">
+                <input type="checkbox" class="hidden-cb" v-model="toggleState">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-text" v-bind:class="{active: !toggleState}" @click="toggle(true)">Искать по названию</span>
+        </div>
+        <div v-if="!toggleState" class="search-tools-checkboxes">
+            <label class="price-cb">
+                <input type="checkbox" class="hidden-cb" v-model="priceState">
+                <span class="fake-cb"></span>
+                <span class="fake-cb-text">Цена</span>
+            </label>
+            <label class="square-cb">
+                <input type="checkbox" class="hidden-cb" v-model="squareState">
+                <span class="fake-cb"></span>
+                <span class="fake-cb-text">Метраж</span>
+            </label>
+        </div>
+    </div>
+</div>
